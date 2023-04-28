@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@loopback/build/config/tsconfig.common.json",
+  "include": ["src", "src/**/*.ts"],
+  "exclude": ["node_modules/**", "dist/**", "**/*.d.ts"],
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "lib": ["es2018", "dom", "esnext.asynciterable"]
+  },
+  "declarationMap": true
+}
