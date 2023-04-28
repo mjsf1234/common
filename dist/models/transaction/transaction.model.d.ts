@@ -1,0 +1,55 @@
+import { BaseSQLModel } from '..';
+export declare class Transaction extends BaseSQLModel {
+    isDummy: boolean;
+    isRemappedToAccount?: boolean;
+    reverseFeedUniqueHash?: string;
+    bosCode?: string;
+    nseCode?: string;
+    bseCode?: string;
+    transactionDate: Date;
+    orderDate?: Date;
+    acquisitionDate?: Date;
+    status: number;
+    transactionSubType: number;
+    quantity?: number;
+    openingQuantity?: number;
+    closingQuantity?: number;
+    pricePerUnit?: number;
+    totalAmount: number;
+    brokerageAmount?: number;
+    accruedInterest?: number;
+    openingAmount?: number;
+    closingAmount?: number;
+    serviceProviderReferenceNumber?: string;
+    userTransactionNumber?: string;
+    bankName?: string;
+    bankAccountNumber?: string;
+    remark?: string;
+    isTransferred?: boolean;
+    isMetroArea?: boolean;
+    isUploaded: boolean;
+    source: number;
+    isCAAppliedTransaction: boolean;
+    batchCode?: string;
+    orderReceiptMode?: number;
+    committedAmount?: number;
+    adjustmentFactor?: number;
+    stopLossTriggerPrice?: number;
+    stopLossBookingProfit?: number;
+    stampDuty?: number;
+    revenueApplicable?: boolean;
+    navDate: Date;
+    orderItemId?: number;
+    instrumentId: number;
+    secondaryInstrumentId?: number;
+    accountId?: number;
+    serviceProviderAccountId: number;
+    currencyId: number;
+    transactionTypeId: number;
+    goalId?: number;
+    [prop: string]: any;
+    constructor(data?: Partial<Transaction>);
+}
+export interface TransactionRelations {
+}
+export declare type TransactionWithRelations = Transaction & TransactionRelations;

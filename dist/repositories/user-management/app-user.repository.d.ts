@@ -1,0 +1,35 @@
+import { BaseLocalRepository, InvestorDetailsRepository } from '../../repositories';
+import { BelongsToAccessor, Getter, HasManyRepositoryFactory, HasManyThroughRepositoryFactory, HasOneRepositoryFactory, juggler } from '@loopback/repository';
+import { Account, Alert, AppAccessToken, UserManagementAppFile, AppRole, AppUser, AppUserRelations, AppUserRoleMapping, Family, FamilyMapping, Feedback, InvestorDetails, CasRequest, MpinHistory, IdcomDetails, UserNotificationToken, Operation } from '../../models';
+import { FamilyRepository } from './family.repository';
+import { FamilyMappingRepository } from './family-mapping.repository';
+import { UserManagementAppFileRepository } from './user-management-app-file.repository';
+import { AppRoleRepository } from './app-role.repository';
+import { AppUserRoleMappingRepository } from './app-user-role-mapping.repository';
+import { AppAccessTokenRepository } from './app-access-token.repository';
+import { AccountRepository } from './account.repository';
+import { AlertRepository } from './alert.repository';
+import { FeedbackRepository } from './feedback.repository';
+import { CasRequestRepository } from '../transaction';
+import { MpinHistoryRepository } from './mpin-history.repository';
+import { IdcomDetailsRepository } from './idcom-details.repository';
+import { UserNotificationTokenRepository } from './user-notification-token.repository';
+import { OperationRepository } from './operation.repository';
+export declare class AppUserRepository extends BaseLocalRepository<AppUser, typeof AppUser.prototype.id, AppUserRelations> {
+    readonly family: BelongsToAccessor<Family, typeof AppUser.prototype.id>;
+    readonly appFileProfilePicture: BelongsToAccessor<UserManagementAppFile, typeof AppUser.prototype.id>;
+    readonly investorDetails: HasOneRepositoryFactory<InvestorDetails, typeof InvestorDetails.prototype.id>;
+    readonly operationDetails: HasOneRepositoryFactory<Operation, typeof Operation.prototype.id>;
+    readonly appRoles: HasManyThroughRepositoryFactory<AppRole, typeof AppRole.prototype.pid, AppUserRoleMapping, typeof AppUserRoleMapping.prototype.id>;
+    readonly accessTokens: HasManyRepositoryFactory<AppAccessToken, typeof AppUser.prototype.id>;
+    readonly primaryAccounts: HasManyRepositoryFactory<Account, typeof AppUser.prototype.id>;
+    readonly alerts: HasManyRepositoryFactory<Alert, typeof AppUser.prototype.id>;
+    readonly feedbacks: HasManyRepositoryFactory<Feedback, typeof AppUser.prototype.id>;
+    readonly casRequests: HasManyRepositoryFactory<CasRequest, typeof AppUser.prototype.id>;
+    readonly mpinHistories: HasManyRepositoryFactory<MpinHistory, typeof AppUser.prototype.id>;
+    readonly parentIds: HasManyRepositoryFactory<FamilyMapping, typeof AppUser.prototype.id>;
+    readonly childIds: HasManyRepositoryFactory<FamilyMapping, typeof AppUser.prototype.id>;
+    readonly idcomDetails: HasManyRepositoryFactory<IdcomDetails, typeof AppUser.prototype.id>;
+    readonly userNotificationTokens: HasManyRepositoryFactory<UserNotificationToken, typeof AppUser.prototype.id>;
+    constructor(dataSource: juggler.DataSource, familyRepositoryGetter: Getter<FamilyRepository>, familyMappingRepositoryGetter: Getter<FamilyMappingRepository>, appFileProfilePictureRepositoryGetter: Getter<UserManagementAppFileRepository>, investorDetailsRepositoryGetter: Getter<InvestorDetailsRepository>, appRoleRepositoryGetter: Getter<AppRoleRepository>, appUserRoleMappingRepositoryGetter: Getter<AppUserRoleMappingRepository>, appAccessTokenRepositoryGetter: Getter<AppAccessTokenRepository>, accountRepository: Getter<AccountRepository>, alertRepositoryGetter: Getter<AlertRepository>, feedbackRepositoryGetter: Getter<FeedbackRepository>, CasRequestRepositoryGetter: Getter<CasRequestRepository>, mpinHistoriesRepositoryGetter: Getter<MpinHistoryRepository>, idcomDetailsRepositoryGetter: Getter<IdcomDetailsRepository>, userNotificationTokenRepositoryGetter: Getter<UserNotificationTokenRepository>, operationRepositoryGetter: Getter<OperationRepository>);
+}

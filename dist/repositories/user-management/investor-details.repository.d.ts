@@ -1,0 +1,38 @@
+import { BaseLocalRepository } from '../../repositories';
+import { BelongsToAccessor, Getter, juggler } from '@loopback/repository';
+import { Address, UserManagementAppFile, AppUser, Country, IdentificationType, IncomeSlab, InvestorCategory, InvestorDetails, InvestorDetailsRelations, InvestorType, Occupation, OverseesAddress, PoliticallyExposureType, WealthSource, State } from '../../models';
+import { AppUserRepository } from './app-user.repository';
+import { CountryRepository, IdentificationTypeRepository, IncomeSlabRepository, InvestorCategoryRepository, InvestorTypeRepository, OccupationRepository, PoliticallyExposureTypeRepository, WealthSourceRepository, StateRepository } from '../master-data';
+import { AddressRepository } from './address.repository';
+import { UserManagementAppFileRepository } from './user-management-app-file.repository';
+import { OverseesAddressRepository } from './oversees-address.repository';
+export declare class InvestorDetailsRepository extends BaseLocalRepository<InvestorDetails, typeof InvestorDetails.prototype.id, InvestorDetailsRelations> {
+    readonly appUser: BelongsToAccessor<AppUser, typeof InvestorDetails.prototype.id>;
+    readonly investorCategory: BelongsToAccessor<InvestorCategory, typeof InvestorDetails.prototype.id>;
+    readonly wealthSource: BelongsToAccessor<WealthSource, typeof InvestorDetails.prototype.id>;
+    readonly occupation: BelongsToAccessor<Occupation, typeof InvestorDetails.prototype.id>;
+    readonly incomeSlab: BelongsToAccessor<IncomeSlab, typeof InvestorDetails.prototype.id>;
+    readonly identificationType: BelongsToAccessor<IdentificationType, typeof InvestorDetails.prototype.id>;
+    readonly identificationType2: BelongsToAccessor<IdentificationType, typeof InvestorDetails.prototype.id>;
+    readonly identificationType3: BelongsToAccessor<IdentificationType, typeof InvestorDetails.prototype.id>;
+    readonly identificationType4: BelongsToAccessor<IdentificationType, typeof InvestorDetails.prototype.id>;
+    readonly investorType: BelongsToAccessor<InvestorType, typeof InvestorDetails.prototype.id>;
+    readonly permanentAddress: BelongsToAccessor<Address, typeof InvestorDetails.prototype.id>;
+    readonly correspondenceAddress: BelongsToAccessor<Address, typeof InvestorDetails.prototype.id>;
+    readonly signatureImageFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly countryOfBirth: BelongsToAccessor<Country, typeof InvestorDetails.prototype.id>;
+    readonly taxResidentCountry: BelongsToAccessor<Country, typeof InvestorDetails.prototype.id>;
+    readonly taxResidentCountry2: BelongsToAccessor<Country, typeof InvestorDetails.prototype.id>;
+    readonly taxResidentCountry3: BelongsToAccessor<Country, typeof InvestorDetails.prototype.id>;
+    readonly taxResidentCountry4: BelongsToAccessor<Country, typeof InvestorDetails.prototype.id>;
+    readonly politicallyExposureType: BelongsToAccessor<PoliticallyExposureType, typeof InvestorDetails.prototype.id>;
+    readonly overseesAddress: BelongsToAccessor<OverseesAddress, typeof InvestorDetails.prototype.id>;
+    readonly stateOfBirth: BelongsToAccessor<State, typeof InvestorDetails.prototype.id>;
+    readonly correspondenceAddressProofFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly permanentAddressProofFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly identityProofFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly panImageFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly kycImageFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    readonly relationshipDocumentImageFile: BelongsToAccessor<UserManagementAppFile, typeof InvestorDetails.prototype.id>;
+    constructor(dataSource: juggler.DataSource, appUserRepositoryGetter: Getter<AppUserRepository>, investorCategoryRepositoryGetter: Getter<InvestorCategoryRepository>, wealthSourceRepositoryGetter: Getter<WealthSourceRepository>, occupationRepositoryGetter: Getter<OccupationRepository>, incomeSlabRepositoryGetter: Getter<IncomeSlabRepository>, identificationTypeRepositoryGetter: Getter<IdentificationTypeRepository>, investorTypeRepositoryGetter: Getter<InvestorTypeRepository>, permanentAddressRepositoryGetter: Getter<AddressRepository>, correspondenceAddressRepositoryGetter: Getter<AddressRepository>, signatureImageFileRepositoryGetter: Getter<UserManagementAppFileRepository>, countryOfBirthRepositoryGetter: Getter<CountryRepository>, taxResidentCountryRepositoryGetter: Getter<CountryRepository>, politicallyExposureTypeRepositoryGetter: Getter<PoliticallyExposureTypeRepository>, overseesAddressRepositoryGetter: Getter<OverseesAddressRepository>, stateOfBirthRepositoryGetter: Getter<StateRepository>, correspondenceAddressProofFileRepositoryGetter: Getter<UserManagementAppFileRepository>, permanentAddressProofFileRepositoryGetter: Getter<UserManagementAppFileRepository>, identityProofFileRepositoryGetter: Getter<UserManagementAppFileRepository>, panImageFileRepositoryGetter: Getter<UserManagementAppFileRepository>, kycImageFileRepositoryGetter: Getter<UserManagementAppFileRepository>, relationshipDocumentImageFileRepositoryGetter: Getter<UserManagementAppFileRepository>);
+}
